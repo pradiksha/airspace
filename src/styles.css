@@ -1,0 +1,50 @@
+:root {
+  --paper: #e9eef0;
+  --ink: #14264a;
+  --ink-2: #1d3563;
+  --line: #3a5287;
+  --text: #eef3f6;
+  --muted: #9fb2cf;
+  --amber: #e8a317;
+}
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body { font-family: Archivo, system-ui, sans-serif; background: var(--ink); color: var(--text); }
+
+.app { display: grid; grid-template-columns: 1fr 340px; height: 100%; }
+.radar { width: 100%; height: 100%; display: block; cursor: crosshair; background: var(--paper); }
+
+.side { display: flex; flex-direction: column; gap: 24px; padding: 28px 24px; overflow-y: auto; }
+.side h1 { font-size: 26px; font-weight: 700; font-stretch: 75%; margin: 0 0 4px; }
+.side header p { margin: 0; color: var(--muted); }
+
+.hint { color: var(--muted); margin: 0 0 12px; }
+.flights { list-style: none; padding: 0; margin: 0; display: grid; gap: 2px; }
+.flights button {
+  width: 100%; display: grid; grid-template-columns: 1fr auto auto; gap: 12px; text-align: left;
+  padding: 10px 12px; background: transparent; color: inherit; border: 0; border-bottom: 1px solid var(--line);
+  font: inherit; cursor: pointer;
+}
+.flights button:hover { background: var(--ink-2); }
+
+.detail h2 { font-size: 44px; font-weight: 800; font-stretch: 70%; margin: 0; line-height: 1; color: var(--amber); }
+.route { font-size: 18px; margin: 8px 0 2px; }
+.phase { color: var(--muted); margin: 0 0 16px; }
+.meter { height: 6px; background: var(--ink-2); border-radius: 3px; overflow: hidden; margin-bottom: 20px; }
+.meter span { display: block; height: 100%; background: var(--amber); }
+dl { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 12px; margin: 0; }
+dt { color: var(--muted); font-size: 13px; }
+dd { margin: 2px 0 0; font-size: 22px; font-weight: 600; font-stretch: 80%; }
+
+.controls { margin-top: auto; display: grid; gap: 12px; }
+.controls button {
+  padding: 10px 14px; font: inherit; font-weight: 600; color: var(--ink); background: var(--text);
+  border: 0; border-radius: 6px; cursor: pointer;
+}
+.controls label { display: grid; gap: 6px; color: var(--muted); font-size: 14px; }
+.controls input { accent-color: var(--amber); }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+
+@media (max-width: 760px) {
+  .app { grid-template-columns: 1fr; grid-template-rows: 55% 45%; }
+}
